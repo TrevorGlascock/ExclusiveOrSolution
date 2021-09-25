@@ -187,10 +187,12 @@ public class HelloWorld {
      * This function adds all remaining nodes of the Iterator into the list
      * @param it iterator to traverse to all remaining elements
      * @param list the list that each element will be added to
-     * @return void -- No need to return
+     * @return void -- The return only exists as a base case for the recursive function
      */
     private static void addRemainingElements(Iterator<Integer> it, List<Integer> list){
-        while(it.hasNext()) list.add(it.next());
+        if(!it.hasNext()) return;
+        list.add(it.next());
+        addRemainingElements(it, list);
     }
 
 }
