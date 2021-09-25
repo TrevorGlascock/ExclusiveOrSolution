@@ -173,6 +173,12 @@ public class HelloWorld {
         return currentValue;
     }
 
+    /**
+     * This overloaded version will take an iterator and a value that is both the startingValue and currentValue
+     * @param it iterator to traverse to the next node
+     * @param value is both the startingValue and the currentValue
+     * @return returns the original function with the new parameters
+     */
     private static int iterateUntilValueChanges(Iterator<Integer> it, int value){
         return iterateUntilValueChanges(it,value,value);
     }
