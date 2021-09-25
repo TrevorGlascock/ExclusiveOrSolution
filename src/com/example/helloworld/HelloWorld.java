@@ -134,8 +134,8 @@ public class HelloWorld {
 
             // valA and valB are equal, AND they both have not terminated
             else if(valA==valB && itA.hasNext() && itB.hasNext()){
-                valA = iterateUntilValueChanges(itA,valA,valA);
-                valB = iterateUntilValueChanges(itB,valB, valB);
+                valA = iterateUntilValueChanges(itA,valA);
+                valB = iterateUntilValueChanges(itB,valB);
             }
 
             // itA or itB has reached the end
@@ -160,11 +160,14 @@ public class HelloWorld {
         return it.next();
     }
 
-
     private static int iterateUntilValueChanges(Iterator<Integer> it,int startingValue, int currentValue){
         if(currentValue==startingValue)
             return iterateUntilValueChanges(it,startingValue,it.next());
         return currentValue;
+    }
+
+    private static int iterateUntilValueChanges(Iterator<Integer> it, int value){
+        return iterateUntilValueChanges(it,value,value);
     }
 
 }
