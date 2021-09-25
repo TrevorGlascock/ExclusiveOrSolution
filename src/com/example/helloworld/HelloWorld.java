@@ -107,10 +107,12 @@ public class HelloWorld {
     }
 
     /**
-     * This is the final version of the exclusiveOr function, refactored for improved readability and efficiency
+     * This is the final version of the exclusiveOr function, refactored for improved readability and efficiency.
+     * It will create an Iterator/Pointer for each list, then use a recursive function to iterate through all the elements
+     * of both lists until the final result is populated.
      * @param listA First provided List
      * @param listB Second provided List
-     * @return List Returns a List that contains all the elements of listA and listB, except for the elements they share
+     * @return List Returns the list that results from dualIteratingExclusiveLists()
      */
     public static List<Integer> exclusiveOrFinal(List<Integer> listA, List<Integer> listB) {
         Iterator<Integer> itA = listA.iterator();
@@ -118,6 +120,16 @@ public class HelloWorld {
         return dualIteratingExclusiveList(itA, itB, itA.next(), itB.next(), new ArrayList<Integer>());
     }
 
+    /**
+     * This function provides the core logic for the whole program.
+     * Using two iterators to traverse two different Lists, this function will return all elements exclusive to a List
+     * @param itA the Iterator for listA
+     * @param itB the Iterator for listB
+     * @param valA Initially the 1st value of listA, it will store the value of the current node in listA
+     * @param valB Initially the 1st value of listB, it will store the value of the current node in listB
+     * @param result Initially an empty ArrayList that will be populated with each exclusive element, then returned
+     * @return Returns the populated result ArrayList
+     */
     private static List<Integer> dualIteratingExclusiveList(Iterator<Integer> itA, Iterator<Integer> itB, int valA, int valB, List<Integer> result){
         // valA is smaller AND itA has not terminated
         if(valA<valB && itA.hasNext())
