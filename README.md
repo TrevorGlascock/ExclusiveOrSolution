@@ -10,7 +10,24 @@
 
 # **Solutions:**
 
-# [Pointer/Iterator Solution (exclusiveOr3)](https://github.com/TrevorGlascock/ExclusiveOrSolution/blob/main/src/com/example/helloworld/HelloWorld.java#L65)
+# [Final Refactored Solution (exclusiveOrFinal)](https://github.com/TrevorGlascock/ExclusiveOrSolution/blob/main/src/com/example/helloworld/HelloWorld.java#L26)
+
+### This is algorithmically identical to Iterator solution, but refactored for readability.
+* All previous functionality remains intact
+* All functions are properly documented
+* Reduced code complexity through use of helper functions and recursion
+* Code is made DRYer by use of encapsulation
+* Still has a linear Time complexity
+* Still has a constant Space complexity
+* Refer to the documentation of each helper function for a breakdown of their utility:
+  * **[dualIteratingExclusiveList](https://github.com/TrevorGlascock/ExclusiveOrSolution/blob/main/src/com/example/helloworld/HelloWorld.java#L43)** -- Holds the core recursive logic that iterates through both Lists simultaneously and performs all the necessary conditional logic at each iteration until both Iterators are fully traversed.
+    * **[addValueToList](https://github.com/TrevorGlascock/ExclusiveOrSolution/blob/main/src/com/example/helloworld/HelloWorld.java#L79)** -- Adds the current value to the result List, then increases its respective iterator.
+    * **[iterateUntilValueChanges](https://github.com/TrevorGlascock/ExclusiveOrSolution/blob/main/src/com/example/helloworld/HelloWorld.java#L93)** -- Whenever the value of both Iterators are the same, we must NOT add it the result, but instead iterate through each of the Lists until we find a value that is different from the current value. 
+    * **[addRemainingElements](https://github.com/TrevorGlascock/ExclusiveOrSolution/blob/main/src/com/example/helloworld/HelloWorld.java#L117)** -- After one of the Lists becomes fully traversed, we must add all the remaining elements of the other List to the result List.
+
+---
+
+# [Pointer/Iterator Solution (exclusiveOr3)](https://github.com/TrevorGlascock/ExclusiveOrSolution/blob/main/src/com/example/helloworld/HelloWorld.java#L183)
  
 ### This was the hardest solution to fully wrap my head around, but is the most efficient. 
 * If we can assume that all values of the input are presorted:
@@ -31,7 +48,7 @@
 
 ---
 
-# [HashMap Solution (exclusiveOr2())](https://github.com/TrevorGlascock/ExclusiveOrSolution/blob/main/src/com/example/helloworld/HelloWorld.java#L32)
+# [HashMap Solution (exclusiveOr2)](https://github.com/TrevorGlascock/ExclusiveOrSolution/blob/main/src/com/example/helloworld/HelloWorld.java#L152)
 
 ### This is the next solution that came to my mind, here's my thought process:
 1. We can use HashMap as a histogram to store the # of occurrences of a specific number in the first list.
@@ -46,7 +63,7 @@
 
 ---
 
-# [Brute Force Solution (exclusiveOr())](https://github.com/TrevorGlascock/ExclusiveOrSolution/blob/main/src/com/example/helloworld/HelloWorld.java#L14)
+# [Brute Force Solution (exclusiveOr)](https://github.com/TrevorGlascock/ExclusiveOrSolution/blob/main/src/com/example/helloworld/HelloWorld.java#L131)
 
 ### This is the most naturally intuitive solution.
 
