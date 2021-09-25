@@ -14,7 +14,7 @@ public class HelloWorld {
     }
 
     /**
-     * This is the final version of the exclusiveOr function, refactored for improved readability and efficiency.
+     * This is the final version of the exclusiveOr function, refactored for improved readability.
      * It will create an Iterator/Pointer for each list, then use a recursive function to iterate through all the
      * elements
      * of both lists until the final result is populated.
