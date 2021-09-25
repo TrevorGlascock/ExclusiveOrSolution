@@ -96,6 +96,9 @@ public class HelloWorld {
             }
         }
 
+        while(itA.hasNext()) result.add(itA.next());
+        while(itB.hasNext()) result.add(itB.next());
+
 
         return result;
     }
