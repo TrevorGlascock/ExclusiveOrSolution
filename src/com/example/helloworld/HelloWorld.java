@@ -112,40 +112,38 @@ public class HelloWorld {
      * @param listB Second provided List
      * @return List Returns a List that contains all the elements of listA and listB, except for the elements they share
      */
-
     public static List<Integer> exclusiveOrFinal(List<Integer> listA, List<Integer> listB) {
         Iterator<Integer> itA = listA.iterator();
         Iterator<Integer> itB = listB.iterator();
-        return loop(itA, itB, itA.next(), itB.next());
+        return dualIteratingExclusiveList(itA, itB, itA.next(), itB.next(), new ArrayList<Integer>());
     }
 
-    private static List<Integer> loop(Iterator<Integer> itA, Iterator<Integer> itB, int valA, int valB){
-        List<Integer> result = new ArrayList<>();
-        while(itA.hasNext() || itB.hasNext()){
-            // valA is smaller AND itA has not terminated
-            if(valA<valB && itA.hasNext())
-                valA = addValueToList(itA, valA, result);
+    private static List<Integer> dualIteratingExclusiveList(Iterator<Integer> itA, Iterator<Integer> itB, int valA, int valB, List<Integer> result){
+        // valA is smaller AND itA has not terminated
+        if(valA<valB && itA.hasNext())
+            valA = addValueToList(itA, valA, result);
 
-            // valB is smaller, AND itB has not terminated
-            else if(valB<valA && itB.hasNext())
-                valB = addValueToList(itB, valB, result);
+        // valB is smaller, AND itB has not terminated
+        else if(valB<valA && itB.hasNext())
+            valB = addValueToList(itB, valB, result);
 
-                // valA and valB are equal, AND they both have not terminated
-            else if(valA==valB && itA.hasNext() && itB.hasNext()){
-                valA = iterateUntilValueChanges(itA,valA);
-                valB = iterateUntilValueChanges(itB,valB);
-            }
-            // One iterator has reached its final node, so we add the remaining elements of the other into the result
-            else{
-                addRemainingElements(itA,result);
-                addRemainingElements(itB,result);
-            }
+        // valA and valB are equal, AND they both have not terminated
+        else if(valA==valB && itA.hasNext() && itB.hasNext()){
+            valA = iterateUntilValueChanges(itA,valA);
+            valB = iterateUntilValueChanges(itB,valB);
+        }
+        // One iterator has reached its final node, so we add the remaining elements of the other into the result
+        else{
+            addRemainingElements(itA,result);
+            addRemainingElements(itB,result);
         }
 
+        // if itA or itB have any remaining nodes to traverse, keep iterating until otherwise
+        if(itA.hasNext()||itB.hasNext()) return dualIteratingExclusiveList(itA,itB,valA,valB,result);
+
+        // If itA and itB have both finished iteration, result is fully populated
         return result;
     }
-
-
 
     /**
      * This helper function returns the next node of an iterator after adding a value to a List.
