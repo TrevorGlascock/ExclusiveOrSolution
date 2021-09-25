@@ -162,7 +162,7 @@ public class HelloWorld {
 
     /**
      * This helper function while traverse the nodes of a given Iterator until the value at the current node no longer matches the starting value
-     * @param it iterator to traverse the next node
+     * @param it iterator to traverse to the next node
      * @param startingValue the value of the node that we start at
      * @param currentValue the value of the current node we are on
      * @return int Returns the first value that doesn't match the startingValue
