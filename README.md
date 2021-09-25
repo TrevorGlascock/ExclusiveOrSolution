@@ -1,3 +1,15 @@
+# Problem:
+#### Given the following Lists:
+  1.  **[ 1 , 3 , 3 , 6 , 6 , 7 , 9 ]**
+  2.  **[ 2 , 3 , 5 , 7 ]**
+#### Write a function that returns this List:
+* **[ 1, 2 , 5 , 6 , 6 , 9 ]**
+
+---
+
+
+# **Solutions:**
+
 # [Pointer/Iterator Solution (exclusiveOr3)](https://github.com/TrevorGlascock/ExclusiveOrSolution/blob/main/src/com/example/helloworld/HelloWorld.java#L65)
  
 ### This was the hardest solution to fully wrap my head around, but is the most efficient. 
