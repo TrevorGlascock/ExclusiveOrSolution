@@ -146,6 +146,13 @@ public class HelloWorld {
         return result;
     }
 
+    /**
+     * This helper function returns the next node of an iterator after adding a value to a List.
+     * @param it iterator to traverse the next node of
+     * @param value  stores the current value of iterator before traversal
+     * @param insertTo is the list that we are adding the value to
+     * @return int returns the value of the next node that Iterator points to
+     */
     private static int addValueToList(Iterator<Integer> it, int value, List insertTo){
         insertTo.add(value);
         return it.next();
