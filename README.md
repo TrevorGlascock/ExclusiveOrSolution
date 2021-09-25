@@ -1,4 +1,4 @@
-# Pointer/Iterator Solution (exclusiveOr3)
+# [Pointer/Iterator Solution (exclusiveOr3)](https://github.com/TrevorGlascock/ExclusiveOrSolution/blob/main/src/com/example/helloworld/HelloWorld.java#L65)
  
 ### This was the hardest solution to fully wrap my head around, but is the most efficient. 
 * If we can assume that all values of the input are presorted:
@@ -19,7 +19,7 @@
 
 ---
 
-# HashMap Solution (exclusiveOr2())
+# [HashMap Solution (exclusiveOr2())](https://github.com/TrevorGlascock/ExclusiveOrSolution/blob/main/src/com/example/helloworld/HelloWorld.java#L32)
 
 ### This is the next solution that came to my mind, here's my thought process:
 1. We can use HashMap as a histogram to store the # of occurrences of a specific number in the first list.
@@ -34,7 +34,7 @@
 
 ---
 
-# Brute Force Solution (exclusiveOr())
+# [Brute Force Solution (exclusiveOr())](https://github.com/TrevorGlascock/ExclusiveOrSolution/blob/main/src/com/example/helloworld/HelloWorld.java#L14)
 
 ### This is the most naturally intuitive solution.
 
