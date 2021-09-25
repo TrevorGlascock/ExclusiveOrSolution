@@ -106,6 +106,13 @@ public class HelloWorld {
         return result;
     }
 
+    /**
+     * This is the final version of the exclusiveOr function, refactored for maximum readability and efficiency
+     * @param listA First provided List
+     * @param listB Second provided List
+     * @return List Returns a List that contains all the elements of listA and listB, except for the elements they share
+     */
+
     public static List<Integer> exclusiveOrFinal(List<Integer> listA, List<Integer> listB) {
         List<Integer> result = new ArrayList<>();
 
