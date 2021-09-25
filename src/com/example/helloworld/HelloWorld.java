@@ -107,7 +107,7 @@ public class HelloWorld {
     }
 
     /**
-     * This is the final version of the exclusiveOr function, refactored for maximum readability and efficiency
+     * This is the final version of the exclusiveOr function, refactored for improved readability and efficiency
      * @param listA First provided List
      * @param listB Second provided List
      * @return List Returns a List that contains all the elements of listA and listB, except for the elements they share
@@ -131,14 +131,12 @@ public class HelloWorld {
             else if(valB<valA && itB.hasNext())
                 valB = addValueToList(itB, valB, result);
 
-
             // valA and valB are equal, AND they both have not terminated
             else if(valA==valB && itA.hasNext() && itB.hasNext()){
                 valA = iterateUntilValueChanges(itA,valA);
                 valB = iterateUntilValueChanges(itB,valB);
             }
-
-            // itA or itB has reached the end
+            // One iterator has reached its final node, so we add the remaining elements of the other into the result
             else{
                 addRemainingElements(itA,result);
                 addRemainingElements(itB,result);
@@ -161,14 +159,14 @@ public class HelloWorld {
     }
 
     /**
-     * This helper function while traverse the nodes of a given Iterator until the value at the current node no longer matches the starting value
+     * This helper function while traverse the nodes of an Iterator until the value at the current node no longer matches the starting value
      * @param it iterator to traverse to the next node
      * @param startingValue the value of the node that we start at
      * @param currentValue the value of the current node we are on
      * @return int Returns the first value that doesn't match the startingValue
      */
     private static int iterateUntilValueChanges(Iterator<Integer> it,int startingValue, int currentValue){
-        if(currentValue==startingValue)
+        if(currentValue==startingValue && it.hasNext())
             return iterateUntilValueChanges(it,startingValue,it.next());
         return currentValue;
     }
