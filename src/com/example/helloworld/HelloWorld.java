@@ -134,13 +134,8 @@ public class HelloWorld {
 
             // valA and valB are equal, AND they both have not terminated
             else if(valA==valB && itA.hasNext() && itB.hasNext()){
-                int temp = valA;
-                while(valA==temp)
-                    valA=itA.next();
-
-                temp = valB;
-                while(valB==temp)
-                    valB=itB.next();
+                valA = iterateUntilValueChanges(itA,valA,valA);
+                valB = iterateUntilValueChanges(itB,valB, valB);
             }
 
             // itA or itB has reached the end
@@ -163,6 +158,13 @@ public class HelloWorld {
     private static int addValueToList(Iterator<Integer> it, int value, List insertTo){
         insertTo.add(value);
         return it.next();
+    }
+
+
+    private static int iterateUntilValueChanges(Iterator<Integer> it,int startingValue, int currentValue){
+        if(currentValue==startingValue)
+            return iterateUntilValueChanges(it,startingValue,it.next());
+        return currentValue;
     }
 
 }
