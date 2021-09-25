@@ -140,8 +140,8 @@ public class HelloWorld {
 
             // itA or itB has reached the end
             else{
-                while(itA.hasNext()) result.add(itA.next());
-                while(itB.hasNext()) result.add(itB.next());
+                addRemainingElements(itA,result);
+                addRemainingElements(itB,result);
             }
         }
 
@@ -181,6 +181,10 @@ public class HelloWorld {
      */
     private static int iterateUntilValueChanges(Iterator<Integer> it, int value){
         return iterateUntilValueChanges(it,value,value);
+    }
+
+    private static void addRemainingElements(Iterator<Integer> it, List<Integer> list){
+        while(it.hasNext()) list.add(it.next());
     }
 
 }
