@@ -114,14 +114,13 @@ public class HelloWorld {
      */
 
     public static List<Integer> exclusiveOrFinal(List<Integer> listA, List<Integer> listB) {
-        List<Integer> result = new ArrayList<>();
-
         Iterator<Integer> itA = listA.iterator();
         Iterator<Integer> itB = listB.iterator();
+        return loop(itA, itB, itA.next(), itB.next());
+    }
 
-        int valA = itA.next();
-        int valB = itB.next();
-
+    private static List<Integer> loop(Iterator<Integer> itA, Iterator<Integer> itB, int valA, int valB){
+        List<Integer> result = new ArrayList<>();
         while(itA.hasNext() || itB.hasNext()){
             // valA is smaller AND itA has not terminated
             if(valA<valB && itA.hasNext())
@@ -131,7 +130,7 @@ public class HelloWorld {
             else if(valB<valA && itB.hasNext())
                 valB = addValueToList(itB, valB, result);
 
-            // valA and valB are equal, AND they both have not terminated
+                // valA and valB are equal, AND they both have not terminated
             else if(valA==valB && itA.hasNext() && itB.hasNext()){
                 valA = iterateUntilValueChanges(itA,valA);
                 valB = iterateUntilValueChanges(itB,valB);
@@ -145,6 +144,8 @@ public class HelloWorld {
 
         return result;
     }
+
+
 
     /**
      * This helper function returns the next node of an iterator after adding a value to a List.
