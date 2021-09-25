@@ -117,16 +117,13 @@ public class HelloWorld {
 
         while(itA.hasNext() || itB.hasNext()){
             // valA is smaller AND itA has not terminated
-            if(valA<valB && itA.hasNext()) {
-                result.add(valA);
-                valA = itA.next();
-            }
+            if(valA<valB && itA.hasNext())
+                valA = insertValueTo(itA.next(), result);
 
             // valB is smaller, AND itB has not terminated
-            else if(valB<valA && itB.hasNext()){
-                result.add(valB);
-                valB = itB.next();
-            }
+            else if(valB<valA && itB.hasNext())
+                insertValueTo(itB.next(), result);
+
 
             // valA and valB are equal, AND they both have not terminated
             else if(valA==valB && itA.hasNext() && itB.hasNext()){
@@ -147,6 +144,11 @@ public class HelloWorld {
         }
 
         return result;
+    }
+
+    private static int insertValueTo(int value, List insertTo){
+        insertTo.add(value);
+        return value;
     }
 
 }
